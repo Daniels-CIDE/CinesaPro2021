@@ -1,16 +1,19 @@
-import java.util.Random;
+import java.util.Arrays;
 
 public class cine {
     public static void main(String[] args) {
         System.out.println("Inicio del cine");
         cine sala = new cine();
-        sala.bucle();
+        sala.semimain();
     }
-    public void bucle (){
+    public void semimain (){
         String[] sala1 = new String[25];
+        Arrays.fill(sala1, "Vacio");
+        bucle();
+    }
 
+    public void bucle (){
         boolean acabar=false;
-        //double dineroaleatorio = (double) (new Random().nextInt(10001))/100;
         double dineroaleatorio = (double) ((Math.random() * 50)+1);
         double dineroaleatorio2 = redondearDecimales(dineroaleatorio,2);
 
@@ -22,6 +25,11 @@ public class cine {
             persona p1 = new persona(dineroaleatorio2,edadaleatoria);
             System.out.println(p1.getdinero());
             System.out.println(p1.getEdad());
+            if (p1.getdinero() > precioentrada && p1.getEdad() > edadminima) {
+
+            }else{
+                bucle();
+            }
             acabar=true;
         }
     }
