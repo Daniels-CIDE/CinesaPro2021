@@ -1,15 +1,23 @@
 import java.util.Arrays;
 
 public class cine {
+    public String[] sala1 = new String[25];
     public static void main(String[] args) {
         System.out.println("Inicio del cine");
         cine sala = new cine();
         sala.semimain();
     }
     public void semimain (){
-        String[] sala1 = new String[25];
         Arrays.fill(sala1, "Vacio");
+        long startTime = System.nanoTime();
         bucle();
+        int subir =0;
+        for(subir=0; subir<sala1.length; subir++){
+            System.out.println(sala1[subir]);
+        }
+        long endTime = System.nanoTime() - startTime;
+        System.out.println(endTime);
+
     }
 
     public void bucle (){
@@ -23,14 +31,30 @@ public class cine {
         int edadaleatoria=(int) ((Math.random() * 80)+1);
         while (!acabar){
             persona p1 = new persona(dineroaleatorio2,edadaleatoria);
-            System.out.println(p1.getdinero());
-            System.out.println(p1.getEdad());
+
             if (p1.getdinero() > precioentrada && p1.getEdad() > edadminima) {
+                int asientorandom = (int) ((Math.random() * sala1.length));
+                if (sala1[asientorandom].equals("Ocupado")){
+                    while (sala1[asientorandom].equals("Ocupado")){
+                        asientorandom = (int) ((Math.random() * sala1.length));
+                    }
+                    sala1[asientorandom]="Ocupado";
+                }else if (sala1[asientorandom].equals("Vacio")){
+                    sala1[asientorandom]="Ocupado";
+                }
 
             }else{
                 bucle();
             }
-            acabar=true;
+            for (int i = 0; i < sala1.length; ++i) {
+                if (sala1[i].equals("Ocupado")){
+
+                }else if (sala1[i].equals("Vacio")){
+                    bucle();
+                }
+            }
+            if (sala1[sala1.length-1].equals("Ocupado"))
+                acabar=true;
         }
     }
     public static double redondearDecimales(double valorInicial, int numeroDecimales) {
