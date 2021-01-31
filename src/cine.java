@@ -12,8 +12,7 @@ public class cine {
         Arrays.fill(sala1, "Vacio");
         long startTime = System.nanoTime();
         bucle();
-        int subir =0;
-        for(subir=0; subir<sala1.length; subir++){
+        for(int subir=0; subir<sala1.length; subir++){
             System.out.println(sala1[subir]);
         }
         long endTime = System.nanoTime() - startTime;
