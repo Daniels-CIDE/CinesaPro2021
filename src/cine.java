@@ -25,11 +25,12 @@ public class cine {
         boolean acabar=false;
         double dineroaleatorio = (double) ((Math.random() * 50)+1);
         double dineroaleatorio2 = redondearDecimales(dineroaleatorio,2);
+        int edadaleatoria=(int) ((Math.random() * 80)+1);
 
         double precioentrada = 6.50;
         int edadminima = 12;
 
-        int edadaleatoria=(int) ((Math.random() * 80)+1);
+
         while (!acabar){
             persona p1 = new persona(dineroaleatorio2,edadaleatoria);
 
@@ -62,8 +63,8 @@ public class cine {
         double parteEntera, resultado;
         resultado = valorInicial;
         parteEntera = Math.floor(resultado);
-        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
-        resultado=Math.round(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales); //10 es la base y el numero de decimales es el exponente
+        resultado=Math.round(resultado); //Devuelve el número redondeado al mas cercano
         resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
         return resultado;
     }
