@@ -4,6 +4,7 @@ public class cine {
     public String[] sala1 = new String[25];
     public static void main(String[] args) {
         System.out.println("Inicio del cine");
+        System.out.println("---------------------");
         cine sala = new cine();
         sala.semimain();
     }
@@ -16,7 +17,8 @@ public class cine {
             System.out.println(sala1[subir]);
         }
         long endTime = System.nanoTime() - startTime;
-        System.out.println(endTime);
+        System.out.println("---------------------");
+        System.out.println(endTime+" Tiempo en nano segundos");
 
     }
 
